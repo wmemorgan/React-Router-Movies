@@ -1,0 +1,7 @@
+# Netlify deployment configuration settings
+
+[build]
+  base = "client/"
+  command = "yarn build"
+  publish = "client/build/"
+  functions = "/"
