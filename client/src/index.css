@@ -77,3 +77,8 @@ body {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
+
+.home-button a {
+  text-decoration: none;
+  color: initial;
+}
