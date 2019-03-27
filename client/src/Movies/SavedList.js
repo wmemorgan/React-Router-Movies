@@ -22,7 +22,7 @@ export default class SavedList extends Component {
           </span>
         ))}
         <div className="home-button">
-          <NavLink to="/" activeClassName="saved-active">
+          <NavLink to="/">
             Home
           </NavLink>
         </div>
