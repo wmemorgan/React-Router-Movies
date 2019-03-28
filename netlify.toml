@@ -4,4 +4,4 @@
   base = "client/"
   command = "yarn build"
   publish = "client/build/"
-  functions = "/"
+  functions = "/api"
