@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const CORS = require('cors');
 
@@ -71,3 +72,4 @@ app.post('/api/movies', (req, res) => {
 // });
 
 module.exports = app
+module.exports.handler = serverless(app)
