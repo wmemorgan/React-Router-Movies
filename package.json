@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "run-p start:**",
-    "start:app": "cd client && yarn start",
+    "start:app": "cd client && REACT_APP_API_ENDPOINT='http://localhost:9000/' yarn start",
     "start:lambda": "netlify-lambda serve api",
     "prod": "yarn build:lambda; yarn build:app",
     "build:app": "cd client && yarn install && yarn build",

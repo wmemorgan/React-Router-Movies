@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import MovieCard from './MovieCard'
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
+
 export default class Movie extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ export default class Movie extends Component {
 
   fetchMovie = id => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`)
+      .get(`${API_ENDPOINT}.netlify/functions/server/api/movies/${id}`)
       .then(response => {
         this.setState(() => ({ movie: response.data }));
       })
