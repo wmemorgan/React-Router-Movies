@@ -15,7 +15,6 @@ export default class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log(process.env.REACT_APP_API_ENDPOINT)
     axios
       .get(`${API_ENDPOINT}.netlify/functions/server/api/movies`)
       .then(response => {
