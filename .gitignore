@@ -2,6 +2,11 @@
 /node_modules
 /api/node_modules
 
+# production
+/build
+/client/build
+/functions
+
 # misc
 .DS_Store
 .env

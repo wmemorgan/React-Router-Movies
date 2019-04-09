@@ -1,9 +1,10 @@
 const express = require('express');
-const serverless = require('serverless-http');
+const serverless = require('serverless-http')
 const bodyParser = require('body-parser');
 const CORS = require('cors');
 
 const app = express();
+const router = express.Router()
 
 app.use(bodyParser.json());
 app.use(CORS());
@@ -53,23 +54,23 @@ const movies = [
 	},
 ];
 
-app.get('/api/movies', (req, res) => {
+router.get('/api/movies', (req, res) => {
 	res.send(movies);
 });
 
-app.get('/api/movies/:id', (req, res) => {
+router.get('/api/movies/:id', (req, res) => {
 	const movie = movies.filter(movie => movie.id.toString() === req.params.id)[0];
 	res.status(200).json(movie);
 });
 
-app.post('/api/movies', (req, res) => {
+router.post('/api/movies', (req, res) => {
 	if (req.body.id !== undefined) movies.push(req.body);
 	res.status(201).json(movies);
 });
 
-// app.listen(5000, () => {
-// 	console.log('Server listening on port 5000');
-// });
+// route path to lambda
+app.use('/.netlify/functions/server', router) 
 
+// export to lambda
 module.exports = app
 module.exports.handler = serverless(app)
